@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute';
 import ProductManagement from './components/ProductManagement';
 import Products from './components/Products';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -42,6 +43,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Cart />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <PrivateRoute>
+                <Checkout />
               </PrivateRoute>
             }
           />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const [cart, setCart] = useState(null);
@@ -26,7 +27,7 @@ const Cart = () => {
     }
   };
 
-  if (!cart) {
+  if (!cart || cart.items.length === 0) {
     return <div>Your cart is empty</div>;
   }
 
@@ -52,6 +53,9 @@ const Cart = () => {
           0
         )}
       </h3>
+      <Link to="/checkout">
+        <button>Proceed to Checkout</button>
+      </Link>
     </div>
   );
 };
