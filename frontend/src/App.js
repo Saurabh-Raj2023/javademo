@@ -4,6 +4,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
+import ProductManagement from './components/ProductManagement';
+import Products from './components/Products';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -15,6 +17,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
+          <Route path="/" element={<Products />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route
@@ -22,6 +25,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/products"
+            element={
+              <PrivateRoute>
+                <ProductManagement />
               </PrivateRoute>
             }
           />
