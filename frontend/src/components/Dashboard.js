@@ -7,6 +7,8 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <p>Welcome to your dashboard!</p>
       <Link to="/admin/products">Manage Products</Link>
+      <br />
+      <Link to="/cart">My Cart</Link>
     </div>
   );
 };

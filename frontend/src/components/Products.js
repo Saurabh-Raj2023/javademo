@@ -17,6 +17,23 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  const addToCart = async (productId) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const body = JSON.stringify({ productId, quantity: 1 });
+
+      await axios.post('http://localhost:5000/cart', body, config);
+      alert('Product added to cart');
+    } catch (err) {
+      console.error(err.response.data);
+    }
+  };
+
   return (
     <div>
       <h2>Products</h2>
@@ -27,6 +44,7 @@ const Products = () => {
             <h4>{product.name}</h4>
             <p>{product.description}</p>
             <p>${product.price}</p>
+            <button onClick={() => addToCart(product._id)}>Add to Cart</button>
           </div>
         ))}
       </div>

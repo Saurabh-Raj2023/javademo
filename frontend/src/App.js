@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import ProductManagement from './components/ProductManagement';
 import Products from './components/Products';
+import Cart from './components/Cart';
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -33,6 +34,14 @@ function App() {
             element={
               <PrivateRoute>
                 <ProductManagement />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute>
+                <Cart />
               </PrivateRoute>
             }
           />
