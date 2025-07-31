@@ -28,7 +28,7 @@ const Login = () => {
 
       const body = JSON.stringify(user);
 
-      const res = await axios.post('http://localhost:5000/users/login', body, config);
+      const res = await axios.post('https://your-deployed-backend.herokuapp.com/users/login', body, config);
       localStorage.setItem('token', res.data.token);
     } catch (err) {
       console.error(err.response.data);

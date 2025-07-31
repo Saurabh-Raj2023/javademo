@@ -22,7 +22,7 @@ const CheckoutForm = () => {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     axios
-      .post('/payment/create-payment-intent', { amount: 1000 }) // Example amount
+      .post('https://your-deployed-backend.herokuapp.com/payment/create-payment-intent', { amount: 1000 }) // Example amount
       .then((res) => {
         setClientSecret(res.data.clientSecret);
       });

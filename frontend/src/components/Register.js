@@ -30,7 +30,7 @@ const Register = () => {
 
       const body = JSON.stringify(newUser);
 
-      const res = await axios.post('http://localhost:5000/users/register', body, config);
+      const res = await axios.post('https://your-deployed-backend.herokuapp.com/users/register', body, config);
       console.log(res.data);
     } catch (err) {
       console.error(err.response.data);

@@ -8,7 +8,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/cart');
+        const res = await axios.get('https://your-deployed-backend.herokuapp.com/cart');
         setCart(res.data);
       } catch (err) {
         console.error(err.response.data);
@@ -20,7 +20,7 @@ const Cart = () => {
 
   const removeFromCart = async (productId) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/cart/${productId}`);
+      const res = await axios.delete(`https://your-deployed-backend.herokuapp.com/cart/${productId}`);
       setCart(res.data);
     } catch (err) {
       console.error(err.response.data);

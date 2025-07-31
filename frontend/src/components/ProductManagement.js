@@ -15,7 +15,7 @@ const ProductManagement = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/products');
+        const res = await axios.get('https://your-deployed-backend.herokuapp.com/products');
         setProducts(res.data);
       } catch (err) {
         console.error(err.response.data);
@@ -46,7 +46,7 @@ const ProductManagement = () => {
 
       const body = JSON.stringify(newProduct);
 
-      const res = await axios.post('http://localhost:5000/products', body, config);
+      const res = await axios.post('https://your-deployed-backend.herokuapp.com/products', body, config);
       setProducts([...products, res.data]);
       setFormData({
         name: '',
@@ -61,7 +61,7 @@ const ProductManagement = () => {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/products/${id}`);
+      await axios.delete(`https://your-deployed-backend.herokuapp.com/products/${id}`);
       setProducts(products.filter((product) => product._id !== id));
     } catch (err) {
       console.error(err.response.data);

@@ -7,7 +7,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/products');
+        const res = await axios.get('https://your-deployed-backend.herokuapp.com/products');
         setProducts(res.data);
       } catch (err) {
         console.error(err.response.data);
@@ -27,7 +27,7 @@ const Products = () => {
 
       const body = JSON.stringify({ productId, quantity: 1 });
 
-      await axios.post('http://localhost:5000/cart', body, config);
+      await axios.post('https://your-deployed-backend.herokuapp.com/cart', body, config);
       alert('Product added to cart');
     } catch (err) {
       console.error(err.response.data);
